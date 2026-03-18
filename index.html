@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employment Portal</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>CareerConnect</h1>
+        <p>Your gateway to new job opportunities</p>
+    </header>
+
+    <!-- Search & Filter Section -->
+    <section class="controls">
+        <input id="searchBox" type="text" placeholder="Search jobs...">
+        
+        <select id="locationFilter">
+            <option value="">All Locations</option>
+            <option value="Remote">Remote</option>
+            <option value="Kampala">Kampala</option>
+            <option value="Mbarara">Mbarara</option>
+            <option value="Mukono">Mukono</option>
+        </select>
+
+        <select id="categoryFilter">
+            <option value="">All Categories</option>
+            <option value="Technology">Technology</option>
+            <option value="Marketing">Marketing</option>
+            <option value="Finance">Finance</option>
+        </select>
+    </section>
+
+    <!-- Job Listings -->
+    <section id="jobList" class="job-list"></section>
+
+    <!-- Job Details Modal -->
+    <div id="jobModal" class="modal">
+        <div class="modal-content">
+            <span id="closeModal" class="close">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <p id="modalCompany"></p>
+            <p id="modalLocation"></p>
+            <p id="modalDescription"></p>
+            <button class="apply-btn">Apply Now</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #333;
+      color: #fff;
+      padding: 15px;
+      text-align: center;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .card h3 {
+      margin: 0;
+    }
+    .skills {
+      margin-top: 10px;
+    }
+    .skill {
+      display: inline-block;
+      background: #007BFF;
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 5px;
+      margin: 3px;
+      font-size: 12px;
+    }
+    .available {
+      color: green;
+      font-weight: bold;
+    }
+    .unavailable {
+      color: red;
+      font-weight: bold;
+    }
+    </style>
+
+    <!--Employees-->
+</head>
+<body>
+
+<header>
+  <h1>Employee Showcase</h1>
+  <p>Available employees and their skills</p>
+</header>
+
+<div class="container" id="employeeContainer"></div>
+
+<script>
+  const employees = [
+    {
+      name: "John Doe",
+      skills: ["HTML", "CSS", "JavaScript"],
+      available: true
+    },
+    {
+      name: "Jane Smith",
+      skills: ["Python", "Django"],
+      available: false
+    },
+    {
+      name: "Alex Johnson",
+      skills: ["React", "Node.js"],
+      available: true
+    }
+  ];
+
+  const container = document.getElementById('employeeContainer');
+
+  employees.forEach(emp => {
+    const card = document.createElement('div');
+    card.className = 'card';
+
+    card.innerHTML = `
+      <h3>${emp.name}</h3>
+      <p class="${emp.available ? 'available' : 'unavailable'}">
+        ${emp.available ? 'Available' : 'Unavailable'}
+      </p>
+      <div class="skills">
+        ${emp.skills.map(skill => `<span class="skill">${skill}</span>`).join('')}
+      </div>
+    `;
+
+    container.appendChild(card);
+  });
+</script>
+</body>
+</html>
