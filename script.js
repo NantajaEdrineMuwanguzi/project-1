@@ -10,14 +10,14 @@ const jobs = [
     {
         title: "Marketing Specialist",
         company: "NSSF",
-        location: "Mbarara",
+        location: "Kampala",
         category: "Marketing",
         description: "Plan and execute marketing campaigns."
     },
     {
         title: "Financial Analyst",
-        company: "Mukono",
-        location: "Kampala",
+        company: "Millenium SACCO",
+        location: "Mbarara",
         category: "Finance",
         description: "Analyze market trends and provide financial insights."
     },
